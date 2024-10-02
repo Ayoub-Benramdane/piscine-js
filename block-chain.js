@@ -1,0 +1,3 @@
+blockChain = (data, prev) => {
+    
+}
