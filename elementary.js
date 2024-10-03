@@ -44,3 +44,5 @@ const divide = (a, b) => {
 const modulo = (a, b) => {
     return a - divide(multiply(a, b), b)
 }
+
+console.log(modulo(-10, 8))
