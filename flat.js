@@ -4,13 +4,35 @@ const flat = (arr, arg) => {
     }
     let table = []
     for (let i = 0; i < arr.length; i++) {
+        let val = false
         if (typeof arr[i] != 'object') {
             table.push(arr[i])
-        } else if (arg > 0) {
-            
+        } else {
+            let nb = arg
+            let obj = arr[i]
+            while (nb > 0 && typeof obj == 'object') {
+                nb--
+                obj = flat2(obj, table)
+                val = true
+            }
+            if (val && typeof obj == 'object') {
+                table.push(obj)
+                continue
+            }
+            if (arg == 0) {
+                table.push(arr[i])
+            }
         }
     }
     return table
 }
 
-console.log(flat([0, 1, [2, [3, [4, 5]]]], 5))
+const flat2 = (obj, table) => {
+    for (let i = 0; i < obj.length; i++) {
+        if (typeof obj[i] != 'object') {
+            table.push(obj[i])
+        } else {
+            return obj[i]
+        }
+    }
+}
