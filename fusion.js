@@ -13,7 +13,7 @@ function fusion(obj1, obj2) {
             if (Array.isArray(val1) && Array.isArray(val2)) {
                 res[key] = val1.concat(val2)
             } else if (typeof val1 === 'string' && typeof val2 === 'string') {
-                res[key] = `${val1} ${val2}`
+                res[key] = val1 + " " + val2
             } else if (typeof val1 === 'number' && typeof val2 === 'number') {
                 res[key] = val1 + val2
             } else if (typeof val1 === 'object' && typeof val2 === 'object' && !Array.isArray(val1) && !Array.isArray(val2)) {

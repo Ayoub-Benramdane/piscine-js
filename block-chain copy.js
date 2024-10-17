@@ -1,3 +1,0 @@
-blockChain = (data, prev) => {
-    
-}
