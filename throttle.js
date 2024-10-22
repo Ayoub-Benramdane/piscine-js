@@ -1,14 +1,6 @@
 const throttle = (func, wait = 10) => {
     let shouldWait = false
     let waitArg
-    const timeFunc = () => {
-        if (!waitArg) shouldWait = false
-        else {
-            func(...waitArg)
-            waitArg = null
-            setTimeout(timeFunc, wait)
-        }
-    }
     return (...arg) => {
         if (shouldWait) {
             waitArg = arg
@@ -16,7 +8,9 @@ const throttle = (func, wait = 10) => {
         }
         func(...arg)
         shouldWait = true
-        setTimeout(timeFunc, wait)
+        setTimeout( () => {
+            shouldWait = false
+        }, wait)
     }
 }
 
@@ -28,21 +22,12 @@ function opThrottle(func, wait, obj) {
             func(...lastArgs)
             lastArgs = null
             timer = setTimeout(timeup, wait)
-        } else {
-            timer = null
-        }
+        } else timer = null
     }
     return function (...args) {
         lastArgs = args
-        if (!timer && obj?.leading) {
-            func(...args)
-        }
-        if (!timer) {
-            timer = setTimeout(timeup, wait)
-        } else {
-            if (obj?.trailing) {
-                lastArgs = args
-            }
-        }
+        if (!timer && obj?.leading) func(...args)
+        if (!timer) timer = setTimeout(timeup, wait)
+        if (obj?.trailing) lastArgs = args
     }
 }
