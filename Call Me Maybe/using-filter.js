@@ -11,15 +11,15 @@ const filter5Vowels = (arr) => {
 }
 
 function filter1DistinctVowel(arr) {
-    return arr.filter(el => {
-        let cout = ''
-        for (let i = 0; i < el.length; i++) {
-            if (el[i].match(/[aeiou]/i)) {
-                if (cout.length >= 1 && el[i].toLowerCase() != cout[0]) return false
-                cout += el[i].toLowerCase()
+    return arr.filter(element => {
+        let vowel = ''
+        for (let i = 0; i < element.length; i++) {
+            if (element[i].match(/[aeiou]/i)) {
+                if (vowel.length >= 1 && element[i].toLowerCase() != vowel) return false
+                vowel = element[i].toLowerCase()
             }
         }
-        return cout.length > 0
+        return vowel.length > 0
     })
 }
 

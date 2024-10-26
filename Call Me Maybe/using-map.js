@@ -11,12 +11,11 @@ const fahrenheitToCelsius = (arr) => {
 }
 
 const trimTemp = (arr) => {
-  let arrMdf = arr.map(element => element.temperature.replace(/\s/g, ''))
+  let arrMdf = arr.map(element => element.temperature.replaceAll(' ', ''))
   for (let i = 0; i < arr.length; i++) arr[i].temperature = arrMdf[i]
   return arr
 }
 
 const tempForecasts = (arr) => {
-  arr = trimTemp(arr)
-  return arr.map(element => fahrenheitToCelsius(element.temperature.split())+ "elsius in " + element.city + ", " + upperCasingStates(element.state.split()))
+  return trimTemp(arr).map(element => fahrenheitToCelsius(element.temperature.split()) + "elsius in " + element.city + ", " + upperCasingStates(element.state.split()))
 }

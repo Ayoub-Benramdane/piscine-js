@@ -1,14 +1,8 @@
 const reverse = (sla) => {
-    if (typeof sla === 'string') {
-        let str = ""
-        for (let i = sla.length-1; i >= 0; i--) {
-            str += sla[i]
-        }
-        return str
+    let str = "", arr = []
+    for (let i = sla.length - 1; i >= 0; i--) {
+        if (typeof sla === 'string') str += sla[i]
+        else arr.push(sla[i])
     }
-    let arr = []
-    for (let i = sla.length-1; i >= 0; i--) {
-        arr.push(sla[i])
-    }
-    return arr
+    return str == "" ? arr : str
 }

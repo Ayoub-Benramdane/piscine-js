@@ -1,31 +1,19 @@
-function filterKeys(obj,func){
-    let rtn = {}
-    for (const key in obj){
-        if (func(key)) rtn[key] = obj[key]
-    }
-    return rtn
+function filterKeys(obj, func) {
+    let res = {}
+    for (const key in obj) if (func(key)) res[key] = obj[key]
+    return res
 }
 
-function mapKeys(obj,func){
-    let rtn = {}
-    for (let key in obj){
-        const k = func(key)
-        rtn[k] = obj[key]
-    }
-    return rtn
+function mapKeys(obj, func) {
+    let res = {}
+    for (let key in obj) res[func(key)] = obj[key]
+    return res
 }
 
-
-function reduceKeys(obj, func, ini) {
-    const keys = Object.keys(obj)
-    let acc = ini
-    for (let i = 0; i < keys.length; i++) {
-        const key = keys[i]
-        if (acc === undefined) {
-            acc = key
-        } else {
-            acc = func(acc, key)
-        }
+function reduceKeys(obj, func, init) {
+    for (let key in obj) {
+        if (init === undefined) init = key
+        else init = func(init, key)
     }
-    return acc
+    return init
 }

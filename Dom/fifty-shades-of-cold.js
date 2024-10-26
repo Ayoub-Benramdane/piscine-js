@@ -2,7 +2,6 @@ import { colors } from './fifty-shades-of-cold.data.js'
 
 export const generateClasses = () => {
     const styleTag = document.createElement('style')
-
     colors.forEach(clr => {
         styleTag.innerHTML += `
             .${clr} {
@@ -15,7 +14,6 @@ export const generateClasses = () => {
 
 export const generateColdShades = () => {
     const clrs = ['aqua', 'blue', 'turquoise', 'green', 'cyan', 'navy', 'purple']
-
     colors.forEach(clr => {
         if (clrs.some(keyword => clr.includes(keyword))) {
             const div = document.createElement('div')
@@ -27,8 +25,7 @@ export const generateColdShades = () => {
 }
 
 export const choseShade = (arg) => {
-    const div = document.querySelectorAll('div')
-    div.forEach(d => {
+    document.querySelectorAll('div').forEach(d => {
         d.className = arg
     })
 };

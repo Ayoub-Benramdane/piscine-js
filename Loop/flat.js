@@ -7,7 +7,6 @@ const flat = (arr, arg) => {
         else table.push(arr[i])
         for (let i = 0; i < table2.length; i++) {
             table.push(table2[i])
-
         }
     }
     return table

@@ -19,7 +19,5 @@ function lowCarbs(obj) {
 }
 
 function cartTotal(obj) {
-    return mapEntries(obj, ([key, v]) => {
-        return [key, mapEntries(nutritionDB[key], ([key, va]) => [key, Number((va * v / 100).toFixed(3))])]
-    })
+    return mapEntries(obj, ([key, v]) => [key, mapEntries(nutritionDB[key], ([key, va]) => [key, +(va * v / 100).toFixed(3)])])
 }

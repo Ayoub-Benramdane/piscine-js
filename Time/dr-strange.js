@@ -16,9 +16,8 @@ const days = {
 }
 
 const addWeek = (date) => {
-    const realtime = new Date(date) - new Date('0001-01-01')
-    const milSec = Math.floor(realtime / (1000 * 60 * 60 * 24))
-    return days[milSec % 14]
+    const day = Math.floor(new Date(date) - new Date('0001-01-01') / (1000 * 60 * 60 * 24))
+    return days[day % 14]
 }
 
 const timeTravel = ({ date, hour, minute, second }) => {

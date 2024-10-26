@@ -15,7 +15,5 @@ export const getActive = () => {
 }
 
 export const getBonannoPisano = () => {
-    let non_BonannoPisano = []
-    getActive()[0].forEach(e => { e.id != 'BonannoPisano' ? non_BonannoPisano.push(e) : _ })
-    return [document.getElementById('BonannoPisano'), non_BonannoPisano]
+    return [document.getElementById('BonannoPisano'), []]
 }

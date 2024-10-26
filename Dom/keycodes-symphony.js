@@ -1,7 +1,6 @@
 export const compose = () => {
     document.addEventListener('keydown', (event) => {
         const key = event.key
-
         if (/^[a-z]$/.test(key)) createNote(key)
         else if (key === 'Backspace') removeLastNote()
         else if (key === 'Escape') removeAllNotes()

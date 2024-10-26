@@ -4,7 +4,7 @@ export function build(bricksNumber) {
         var brick = document.createElement('div')
         brick.id = `brick-${bricks}`
         if (bricks % 3 === 2) brick.dataset.foundation = 'true'
-        document.body.appendChild(brick);
+        document.body.appendChild(brick)
         bricks++
         if (bricks > bricksNumber) clearInterval(interval)
     }, 100)
@@ -19,6 +19,5 @@ export function repair(...ids) {
 }
 
 export function destroy() {
-    let toDelete = document.body.lastElementChild;
-    toDelete.remove()
+    document.body.lastElementChild.remove()
 }

@@ -1,9 +1,7 @@
 const invert = (obj) => {
-    const nObj = {};
+    const nObj = {}
     for (let key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            nObj[obj[key]] = key
-        }
+        if (obj.hasOwnProperty(key)) nObj[obj[key]] = key
     }
     return nObj
 }

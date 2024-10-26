@@ -1,7 +1,6 @@
 const repeat = (word, n) => {
     let s = ""
-    while (n > 0) {
-        n--
+    for (let i = 0; i < n; i++) {
         s += word
     }
     return s
